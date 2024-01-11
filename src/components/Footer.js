@@ -66,10 +66,10 @@ const Footer = () => {
                                         <BsInstagram className="fs-4"/>
                                     </a>
                                     <a className="text-white" href="">
-                                        <BsLinkedin className="fs-4"/>
+                                        <BsGithub className="fs-4"/>
                                     </a>
                                     <a className="text-white" href="">
-                                        <BsLinkedin className="fs-4"/>
+                                        <BsYoutube className="fs-4"/>
                                     </a>
                                 </div>
                             </div>
