@@ -262,8 +262,14 @@ footer .input-group-text {
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
+  width: 100%;
 }
-:hover .action-bar {
+.action-bar {
+  top: 10%;
+  right: -23px;
+  transition: 0.3s;
+}
+.product-card:hover .action-bar {
   right: 15px;
 }
 .product-card .product-image {
@@ -289,6 +295,11 @@ footer .input-group-text {
   font-size: 15px;
   color: var(--color-1c1c1b);
 }
+.product-card .product-details .description {
+  font-size: 13px;
+  color: var(--color-777777);
+  margin-right: 20px;
+}
 .product-card .product-details p.price {
   font-size: 16px;
   color: var(--color-1c1c1b);
@@ -297,11 +308,7 @@ footer .input-group-text {
   top: 3%;
   right: 17px;
 }
-.action-bar {
-  top: 10%;
-  right: -23px;
-  transition: 0.3s;
-}
+
 /* End Product*/
 
 /* Special Product */
@@ -343,3 +350,102 @@ footer .input-group-text {
   color: white;
 }
 /* End Famous */
+
+/* Store */
+.filter-card {
+  background-color: white;
+  padding: 15px 15px 25px;
+  border-radius: 10px;
+}
+.filter-card-title {
+  color: var(--color-1c1c1b);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.filter-card ul,
+.filter-card .form-check-label {
+  list-style-type: none;
+  color: var(--color-777777);
+  font-size: 13px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.filter-card .form-check-input:focus {
+  box-shadow: none;
+  border-color: rgba(0,0,0,0.25);
+}
+.filter-card .form-check-input:checked {
+  background-color: var(--color-febd69);
+  border-color: var(--color-febd69);
+}
+.sub-title{
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-1c1c1b);
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+.colors {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.colors li{
+  background-color: red;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+.random-products h5 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.random-product:first-child {
+  border-bottom: 1px solid var(--color-ededed);
+}
+.filter-sort-grid {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.grid img {
+  width: 35px;
+  height: 35px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.gr-12 {
+  width: 100%;
+}
+.gr-12 .product-card {
+  display: flex;
+  gap: 20px;
+}
+.gr-12 .product-card .product-image {
+  width: 270px;
+}
+.gr-12 .product-card .action-bar {
+  top: 13%;
+}
+.gr-6 {
+  width: 49.48%;
+}
+.gr-6 .product-card .product-image{
+  width: 270px;
+  margin: auto;
+}
+.gr-4 {
+  width: 32%;
+}
+.gr-3 {
+  width: 24%;
+}
+.gr-3 .product-card .product-image {
+  height: 200px;
+}
+/* End Store */
