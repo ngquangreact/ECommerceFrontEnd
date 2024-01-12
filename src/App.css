@@ -254,8 +254,26 @@ footer .input-group-text {
   line-height: 22px;
   color: var(--color-777777);
 }
-/* End Blog */
 
+/* End Blog */
+/* Single Blog */
+.single-blog-card a {
+  font-size: 18px;
+  color: var(--color-777777);
+  margin-bottom: 20px;
+}
+
+.single-blog-card .title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-1c1c1b);
+}
+
+.single-blog-card p {
+  font-size: 14px;
+  color: var(--color-777777 );
+}
+/* End Single Blog */
 /* Product Part */
 .product-card {
   padding: 15px;
