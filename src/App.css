@@ -449,3 +449,38 @@ footer .input-group-text {
   height: 200px;
 }
 /* End Store */
+
+/* Contact Page */
+.contac-form {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  gap: 15px;
+}
+
+.contac-form > div {
+  width: 48%;
+}
+
+.contact-title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 35px;
+}
+
+.contac-form .form-control {
+  background-color: var(--color-f5f5f7);
+  border-color: transparent;
+  padding: 10px;
+  border-radius: 10px;
+}
+.contac-form  ul {
+  list-style-type: none;
+}
+.contac-form address,
+.contac-form a,
+.contac-form p {
+  color: var(--color-777777);
+}
+
+/* End Contact Page */
