@@ -313,10 +313,18 @@ const Home = () => {
                         Our Latest Blogs
                     </div>
                     <div className="row">
-                        <BlogCard />
-                        <BlogCard />
-                        <BlogCard />
-                        <BlogCard />
+                        <div className="col-3">
+                            <BlogCard />
+                        </div>
+                        <div className="col-3">
+                            <BlogCard />
+                        </div>
+                        <div className="col-3">
+                            <BlogCard />
+                        </div>
+                        <div className="col-3">
+                            <BlogCard />
+                        </div>
                     </div>
                 </div>
             </section>
