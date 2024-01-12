@@ -589,3 +589,32 @@ footer .input-group-text {
 }
 /* End Login Page */
 
+/* Policy Page */
+.policy {
+  background-color: #fff;
+  padding: 30px;
+}
+/* End Policy Page */
+
+/* single product page */
+.review-inner-wrapper {
+  background-color: white;
+  padding: 30px;
+}
+
+.review-head {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 20px;
+}
+
+.review-head h4 {
+  font-size: 18px;
+  color: var(--color-1c1c1b);
+}
+
+.review-head p,
+.review-head a {
+  font-size: 14px;
+  color: var(--color-777777);
+}
+/* end single product page */
