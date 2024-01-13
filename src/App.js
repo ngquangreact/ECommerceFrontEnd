@@ -21,6 +21,7 @@ import ShippingPolicy from './pages/ShippingPolicy';
 import TermAndConditions from './pages/TermAndConditions';
 import SingleProduct from './pages/SingleProduct';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path='contact' element={<Contact />}/>
           <Route path='products' element={<OurStore />}/>
           <Route path='cart' element={<Cart />}/>
+          <Route path='checkout' element={<Checkout />}/>
           <Route path='products/:id' element={<SingleProduct />}/>
           <Route path='blogs' element={<Blogs />}/>
           <Route path='blogs/:id' element={<SingleBlog />}/>
