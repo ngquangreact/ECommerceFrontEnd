@@ -1,5 +1,6 @@
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
+import CustomInput from "../components/CustomInput";
 
 const SignUp = () => {
     return (
@@ -13,38 +14,10 @@ const SignUp = () => {
                             <div className="auth-card">
                                 <h3 className="text-center">Sign Up</h3>
                                 <form action="" className="d-flex flex-column gap-30">
-                                    <div>
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            placeholder="Name"
-                                            className="form-control"
-                                        />
-                                    </div>
-                                    <div>
-                                        <input
-                                            type="text"
-                                            name="mobile"
-                                            placeholder="Mobile"
-                                            className="form-control"
-                                        />
-                                    </div>
-                                    <div>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            placeholder="Email"
-                                            className="form-control"
-                                        />
-                                    </div>
-                                    <div className="mt-1">
-                                        <input
-                                            type="password"
-                                            name="password"
-                                            placeholder="Password"
-                                            className="form-control"
-                                        />
-                                    </div>
+                                    <CustomInput type="text" name="name" placeholder="Name"/>
+                                    <CustomInput type="text" name="mobile" placeholder="Mobile"/>
+                                    <CustomInput type="email" name="email" placeholder="Email"/>
+                                    <CustomInput type="password" name="password" placeholder="Password"/>
                                     <div>
                                         <div className="mt-3 d-flex justify-content-center gap-15 align-items-center">
                                             <button type="submit" className="button border-0">Sign Up</button>

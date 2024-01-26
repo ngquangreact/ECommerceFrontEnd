@@ -7,7 +7,6 @@ import Colors from "../components/Colors";
 
 const OurStore = () => {
     const [grid,setGrid] = useState(3);
-    console.log(grid)
     return (
         <>
             <Meta title="our store"/>
@@ -72,7 +71,7 @@ const OurStore = () => {
                                             />
                                             <label for="floatingInput">Form</label>
                                         </div>
-                                        <div class="form-floating">
+                                        <div className="form-floating">
                                             <input 
                                                 type="text" 
                                                 className="form-control py-0" 
@@ -179,7 +178,7 @@ const OurStore = () => {
                                                 <ReactStars 
                                                     count={5} 
                                                     size={24} 
-                                                    value="4" 
+                                                    value={4} 
                                                     edit={false} 
                                                     activeColor="#ffd700"
                                                 />
@@ -199,7 +198,7 @@ const OurStore = () => {
                                                 <ReactStars 
                                                     count={5} 
                                                     size={24} 
-                                                    value="4" 
+                                                    value={4} 
                                                     edit={false} 
                                                     activeColor="#ffd700"
                                                 />
@@ -217,10 +216,11 @@ const OurStore = () => {
                                         <p className="mb-0" style={{width: "100px"}}>Sort By:</p>
                                         <select
                                             className="form-control form select"
+                                            defaultValue={"DEFAULT"}
                                             id=""
                                         >
-                                            <option value="manual">Featured</option>
-                                            <option value="best-selling" selected="selected">Featured</option>
+                                            <option value="DEFAULT" disabled >Featured</option>
+                                            <option value="best-selling">Best selling</option>
                                             <option value="title-ascending">Alphabetically, A-Z</option>
                                             <option value="title-descending">Alphabetically, Z-A</option>
                                             <option value="price-ascending">Price, low to high</option>
