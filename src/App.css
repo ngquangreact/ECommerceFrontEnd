@@ -588,6 +588,12 @@ footer .input-group-text {
   background-color: var(--color-131921);
   color: white;
 }
+
+.input-error {
+  font-size: 12px;
+  padding-left: 10px;
+  color: red;
+}
 /* End Login Page */
 
 /* Policy Page */
