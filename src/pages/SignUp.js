@@ -13,7 +13,7 @@ const signUpSchema = yup.object({
   email: yup
     .string()
     .nullable()
-    .required("Emial is required")
+    .required("Email is required")
     .email("Email should be valid"),
   mobile: yup.string().required("Mobile is required"),
   password: yup.string().required("Password is required"),
@@ -52,7 +52,7 @@ const SignUp = () => {
                     type="text"
                     name="fristname"
                     placeholder="First Name"
-                    value={formik.values.firstName}
+                    value={formik.values.firstname}
                     onChange={formik.handleChange("firstname")}
                     onBlur={formik.handleBlur("firstname")}
                   />
