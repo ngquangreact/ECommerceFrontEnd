@@ -12,7 +12,6 @@ const OurStore = () => {
   const dispatch = useDispatch();
   const productsState = useSelector((state) => state.product.products);
 
-  console.log(productsState);
   // have to put this function in useCallback later
   const getAllProductInStore = () => {
     dispatch(getAllProduct());
