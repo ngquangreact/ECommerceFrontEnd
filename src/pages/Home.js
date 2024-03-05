@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import BlogCard from "../components/BlogCard";
-import ProductCart from "../components/ProductCard";
+import ProductCard from "../components/ProductCard";
 import SpecialProduct from "../components/SpecialProduct";
 import Container from "../components/Container";
 import { services } from "../utils/Data";
@@ -10,16 +10,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllBlog } from "../features/blogs/blogSlice";
 import { useEffect } from "react";
 import moment from "moment";
+import { getAllProduct } from "../features/products/productSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
   const blogsState = useSelector((state) => state.blog.blogs);
+  const productsState = useSelector((state) => state.product.products);
   const getAllBlogInStore = () => {
     dispatch(getAllBlog());
   };
-
+  const getAllProductInStore = () => {
+    dispatch(getAllProduct());
+  };
   useEffect(() => {
     getAllBlogInStore();
+    getAllProductInStore();
   }, []);
 
   return (
@@ -186,10 +191,13 @@ const Home = () => {
       <Container class1="featured-wrapper py-5 home-wrapper-2">
         <h3 className="section-heading">Featured Collection</h3>
         <div className="row">
-          <ProductCart />
-          <ProductCart />
-          <ProductCart />
-          <ProductCart />
+          {productsState &&
+            productsState?.map((item) => {
+              if (item?.tags === "featured") {
+                return <ProductCard key={item?._id} productData={item} />;
+              }
+              return;
+            })}
         </div>
       </Container>
       <Container class1="famous-wrapper py-5 home-wrapper-2">
@@ -259,18 +267,35 @@ const Home = () => {
           </div>
         </div>
         <div className="row">
-          <SpecialProduct />
-          <SpecialProduct />
-          <SpecialProduct />
+          {productsState &&
+            productsState?.map((item) => {
+              if (item?.tags === "special") {
+                return (
+                  <SpecialProduct
+                    key={item?._id}
+                    title={item?.title}
+                    brand={item?.brand}
+                    price={item?.price}
+                    totalRating={item?.totalrating}
+                    quantity={item?.quantity}
+                    sold={item?.sold}
+                  />
+                );
+              }
+              return;
+            })}
         </div>
       </Container>
       <Container class1="popular-wrapper py-5 home-wrapper-2">
         <h3 className="section-heading">Our Popular Products</h3>
         <div className="row">
-          <ProductCart />
-          <ProductCart />
-          <ProductCart />
-          <ProductCart />
+          {productsState &&
+            productsState?.map((item) => {
+              if (item?.tags === "popular") {
+                return <ProductCard key={item?._id} productData={item} />;
+              }
+              return;
+            })}
         </div>
       </Container>
       <Container class1="marque-wrapper home-wrapper-2 py-5">

@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { addToWishlist } from "../features/products/productSlice";
 
-const ProductCart = (props) => {
+const ProductCard = (props) => {
   const { grid, productData } = props;
+  console.log("productData: ", productData);
   const location = useLocation();
   const dispatch = useDispatch();
 
@@ -75,4 +76,4 @@ const ProductCart = (props) => {
   );
 };
 
-export default ProductCart;
+export default ProductCard;
