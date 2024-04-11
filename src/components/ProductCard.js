@@ -1,12 +1,12 @@
 import ReactStars from "react-rating-stars-component";
 import { useDispatch } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { addToWishlist } from "../features/products/productSlice";
 
 const ProductCard = (props) => {
   const { grid, productData } = props;
-  console.log("productData: ", productData);
   const location = useLocation();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const addProductToWishList = (id) => {
@@ -16,16 +16,7 @@ const ProductCard = (props) => {
 
   return (
     <div className={location.pathname === "/products" ? `gr-${grid}` : "col-3"}>
-      <Link
-        // to={
-        //   location.pathname === "/"
-        //     ? "products/:id"
-        //     : location.pathname === "/products/:id"
-        //     ? "/products/:id"
-        //     : ":id"
-        // }
-        className="product-card position-relative"
-      >
+      <div className="product-card position-relative">
         <div className="wishlist-icon position-absolute">
           <button
             className="border-0 bg-transparent"
@@ -64,14 +55,18 @@ const ProductCard = (props) => {
               <img src="images/prodcompare.svg" alt="icon" />
             </button>
             <button className="border-0 bg-transparent">
-              <img src="images/view.svg" alt="icon" />
+              <img
+                src="images/view.svg"
+                onClick={() => navigate("/products/" + productData._id)}
+                alt="icon"
+              />
             </button>
             <button className="border-0 bg-transparent">
               <img src="images/add-cart.svg" alt="icon" />
             </button>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

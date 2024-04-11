@@ -272,6 +272,7 @@ const Home = () => {
               if (item?.tags === "special") {
                 return (
                   <SpecialProduct
+                    id={item?._id}
                     key={item?._id}
                     title={item?.title}
                     brand={item?.brand}
