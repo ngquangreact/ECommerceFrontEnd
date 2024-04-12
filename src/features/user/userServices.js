@@ -19,10 +19,36 @@ const login = async (userData) => {
 
 const getWishlistUser = async () => {
   const response = await axios.get(`${base_url}user/wishlist`, headersConfig);
-  
+
   if (response.data) {
     return response.data;
   }
 };
 
-export const authService = { register, login, getWishlistUser };
+const addToCart = async (cartData) => {
+  const response = await axios.post(
+    `${base_url}user/cart`,
+    cartData,
+    headersConfig
+  );
+
+  if (response.data) {
+    return response.data;
+  }
+};
+
+const getCart = async () => {
+  const response = await axios.get(`${base_url}user/cart`, headersConfig);
+
+  if (response.data) {
+    return response.data;
+  }
+};
+
+export const authService = {
+  register,
+  login,
+  getWishlistUser,
+  addToCart,
+  getCart,
+};

@@ -9,13 +9,32 @@ import { IoMdHeartEmpty, IoIosGitCompare } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProduct } from "../features/products/productSlice";
+import { toast } from "react-toastify";
+import { addToCart } from "../features/user/userSlice";
 
 const SingleProduct = () => {
+  const [color, setColor] = useState(null);
+  console.log(color);
+  const [quantity, setQuantity] = useState(1);
   const location = useLocation();
   const getProductId = location.pathname.split("/")[2];
   const dispatch = useDispatch();
   const productState = useSelector((state) => state.product.singleProduct);
-
+  const uploadCart = () => {
+    if (color === null) {
+      toast.error("Please Choose Color");
+      return false;
+    } else {
+      dispatch(
+        addToCart({
+          productId: productState._id,
+          quantity,
+          color,
+          price: productState?.price,
+        })
+      );
+    }
+  };
   useEffect(() => {
     dispatch(getSingleProduct(getProductId));
   }, []);
@@ -25,7 +44,7 @@ const SingleProduct = () => {
     width: 594,
     height: 500,
     zoomWidth: 500,
-    img: productState?.images[0]?.url,
+    img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg",
   };
 
   return (
@@ -42,9 +61,9 @@ const SingleProduct = () => {
                 </div>
               </div>
               <div className="other-product-images d-flex flex-wrap gap-15">
-                {productState?.images.map((item, index) => {
+                {productState?.images?.map((item) => {
                   return (
-                    <div>
+                    <div key={item?.url}>
                       <img src={item?.url} className="img-fluid" alt="" />
                     </div>
                   );
@@ -112,7 +131,10 @@ const SingleProduct = () => {
                   </div>
                   <div className="d-flex flex-column gap-10 mt-2 mb-3">
                     <h3 className="product-heading">Color: </h3>
-                    <Colors />
+                    <Colors
+                      setColor={setColor}
+                      colorData={productState?.colors}
+                    />
                   </div>
                   <div className="d-flex flex-row align-items-center gap-15 mt-2 mb-3">
                     <h3 className="product-heading">Quantity: </h3>
@@ -125,10 +147,18 @@ const SingleProduct = () => {
                         className="form-control"
                         id=""
                         style={{ width: "70px" }}
+                        onChange={(e) => setQuantity(e.target.value)}
+                        value={quantity}
                       />
                     </div>
                     <div className="d-flex align-items-center gap-30 ms-5">
-                      <button type="submit" className="button border-0">
+                      <button
+                        type="submit"
+                        className="button border-0"
+                        onClick={() => {
+                          uploadCart();
+                        }}
+                      >
                         Add to Cart
                       </button>
                       <button className="button signup">Buy It Now</button>
