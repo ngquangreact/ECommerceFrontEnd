@@ -11,11 +11,20 @@ import {
 } from "../features/user/userSlice";
 
 const Cart = () => {
+  const [totalAmount, setTotalAmount] = useState(null);
+  console.log(totalAmount);
   const dispatch = useDispatch();
   const userCartState = useSelector((state) => state.auth.cartProducts);
   useEffect(() => {
     dispatch(getCart());
   }, []);
+  useEffect(() => {
+    let sum = 0;
+    for (let i = 0; i < userCartState.length; i++) {
+      sum = sum + userCartState[i].quantity * userCartState[i].price;
+    }
+    setTotalAmount(sum);
+  });
   const deleteAItemFromCart = (id) => {
     dispatch(removeItemFromCart(id));
     setTimeout(() => {
@@ -96,13 +105,15 @@ const Cart = () => {
               <Link to="/products" className="button">
                 Continue To Shopping
               </Link>
-              <div>
-                <h4>SubTotal: $ 1000</h4>
-                <p>Taxes and shipping calculated at checkout</p>
-                <Link to="/checkout" className="button">
-                  Checkout
-                </Link>
-              </div>
+              {totalAmount !== null && totalAmount !== 0 && (
+                <div>
+                  <h4>SubTotal: $ {totalAmount}</h4>
+                  <p>Taxes and shipping calculated at checkout</p>
+                  <Link to="/checkout" className="button">
+                    Checkout
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
