@@ -15,6 +15,7 @@ export const getAllProduct = createAsyncThunk(
 export const getSingleProduct = createAsyncThunk(
   "product/get-a-product",
   async (prodId, thunkAPI) => {
+    console.log("productId: ", prodId);
     try {
       return await productServices.getSingleProduct(prodId);
     } catch (error) {

@@ -37,6 +37,27 @@ const addToCart = async (cartData) => {
   }
 };
 
+const removeItemFromCart = async (id) => {
+  const response = await axios.delete(
+    `${base_url}user/delete-item-cart/${id}`,
+    headersConfig
+  );
+  if (response.data) {
+    return response.data;
+  }
+};
+
+const updateItemFromCart = async (data) => {
+  console.log("data: ", data);
+  const response = await axios.put(
+    `${base_url}user/update-quantity-item-cart/${data.cartItemId}/${data.quantity}`,
+    headersConfig
+  );
+  if (response.data) {
+    return response.data;
+  }
+};
+
 const getCart = async () => {
   const response = await axios.get(`${base_url}user/cart`, headersConfig);
 
@@ -50,5 +71,7 @@ export const authService = {
   login,
   getWishlistUser,
   addToCart,
+  removeItemFromCart,
   getCart,
+  updateItemFromCart,
 };

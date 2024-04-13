@@ -3,16 +3,25 @@ import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getCart } from "../features/user/userSlice";
+import { useEffect, useState } from "react";
+import {
+  getCart,
+  removeItemFromCart,
+  updateItemFromCart,
+} from "../features/user/userSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const userCartState = useSelector((state) => state.auth.cartProducts);
-  console.log(userCartState);
   useEffect(() => {
     dispatch(getCart());
   }, []);
+  const deleteAItemFromCart = (id) => {
+    dispatch(removeItemFromCart(id));
+    setTimeout(() => {
+      dispatch(getCart());
+    }, 200);
+  };
   return (
     <>
       <Meta title="Cart" />
@@ -68,7 +77,10 @@ const Cart = () => {
                           />
                         </div>
                         <div>
-                          <AiFillDelete className="text-danger" />
+                          <AiFillDelete
+                            onClick={() => deleteAItemFromCart(item?._id)}
+                            className="text-danger"
+                          />
                         </div>
                       </div>
                       <div className="cart-col-4">

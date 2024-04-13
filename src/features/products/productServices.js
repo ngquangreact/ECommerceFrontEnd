@@ -10,7 +10,10 @@ const getAllProduct = async () => {
 };
 
 const getSingleProduct = async (prodId) => {
-  const response = await axios.get(`${base_url}product/${prodId}`);
+  const response = await axios.get(
+    `${base_url}product/${prodId}`,
+    headersConfig
+  );
 
   if (response.data) {
     return response.data;
